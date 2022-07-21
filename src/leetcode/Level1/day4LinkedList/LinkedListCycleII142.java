@@ -1,7 +1,4 @@
-package leetcode.Level1.day4;
-
-import leetcode.Level1.day3.ReversedLinkedList206;
-import leetcode.ListNode;
+package leetcode.Level1.day4LinkedList;
 
 import java.util.HashSet;
 import java.util.Set;

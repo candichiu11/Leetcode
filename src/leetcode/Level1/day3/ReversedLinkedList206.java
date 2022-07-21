@@ -1,8 +1,5 @@
 package leetcode.Level1.day3;
 
-import leetcode.Level2.day3.RemoveNthNodeFromEndOfList19;
-import leetcode.ListNode;
-
 public class ReversedLinkedList206 {
 
     //Definition for singly-linked list.

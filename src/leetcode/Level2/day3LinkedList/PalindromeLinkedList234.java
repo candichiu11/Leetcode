@@ -1,4 +1,4 @@
-package leetcode.Level2.day3;
+package leetcode.Level2.day3LinkedList;
 
 
 import leetcode.ListNode;
@@ -18,7 +18,7 @@ public class PalindromeLinkedList234 {
          ListNode slow = head;
 
          //O(n)
-         while(fast.next != null && fast.next.next != null) {
+         while(fast.next!=null && fast.next.next!=null) {
              fast = fast.next.next;
              slow = slow.next;
          }
@@ -54,12 +54,14 @@ public class PalindromeLinkedList234 {
     public static void main ( String [ ] args ) {
          ListNode head = new ListNode(1);
          ListNode ele =  new ListNode(2);
-         ListNode ele2 = new ListNode(2);
-         ListNode ele3 = new ListNode(1);
+//         ListNode ele2 = new ListNode(2);
+//         ListNode ele3 = new ListNode(1);
+//        ListNode ele4 = new ListNode(1);
 
          head.next = ele;
-         ele.next = ele2;
-         ele2.next = ele3;
+//         ele.next = ele2;
+//         ele2.next = ele3;
+//         ele3.next =ele4;
 
          PalindromeLinkedList234 test = new PalindromeLinkedList234();
          test.isPalindrome(head);

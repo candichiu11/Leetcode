@@ -1,6 +1,4 @@
-package leetcode.Level2.day3;
-
-import leetcode.Level1.day4.LinkedListCycleII142;
+package leetcode.Level2.day3LinkedList;
 
 public class RemoveNthNodeFromEndOfList19 {
 
