@@ -1,4 +1,4 @@
-package leetcode.Level1.day3;
+package leetcode.Level1.day3LinkedList;
 
 public class ReversedLinkedList206 {
 

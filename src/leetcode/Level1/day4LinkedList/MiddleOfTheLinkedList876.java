@@ -13,7 +13,7 @@ public class MiddleOfTheLinkedList876 {
             fast = fast.next.next;
             slow = slow.next;
         }
-        System.out.println(slow.val);
+
         return slow;
     }
 
