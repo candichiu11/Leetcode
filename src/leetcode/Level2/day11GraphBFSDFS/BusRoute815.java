@@ -41,7 +41,8 @@ public class BusRoute815 {
                   if(!visited.contains(bus)) {
                       visited.add(bus);
                       for (int stop : routes[bus]) {
-                          if (stop == source) {
+
+                          if (stop == target) {
                               return count;
                           }
                           queue.add(stop);
