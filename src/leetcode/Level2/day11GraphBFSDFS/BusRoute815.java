@@ -32,6 +32,7 @@ public class BusRoute815 {
             count++;
 
             int size = queue.size();
+
             for(int i = 0; i < size; i++) {
                 int curr = queue.poll();
                 List<Integer> buses = map.get(curr);
@@ -40,6 +41,7 @@ public class BusRoute815 {
                   if(!visited.contains(bus)) {
                       visited.add(bus);
                       for (int stop : routes[bus]) {
+
                           if (stop == target) {
                               return count;
                           }
