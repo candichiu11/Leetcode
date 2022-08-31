@@ -5,7 +5,8 @@ import leetcode.TreeNode;
 public class SumRootToLeafPaths112 {
 
     //Time: O(n), n: number of node in the tree
-    //Space: O(h), h: height of the tree
+    //Space: O(n), Worst case: O(n) if the tree is completely unbalanced, Best case: O(log(n)) if the tree
+    // is completely balanced
     public boolean hasPathSum(TreeNode node, int targetSum) {
         if (node == null) return false;
 

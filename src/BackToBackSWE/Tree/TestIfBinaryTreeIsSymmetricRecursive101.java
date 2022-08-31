@@ -2,7 +2,7 @@ package BackToBackSWE.Tree;
 
 import leetcode.TreeNode;
 
-public class TestIfBinaryTreeIsSymmetric101 {
+public class TestIfBinaryTreeIsSymmetricRecursive101 {
 
     //Time: O(n) , upperbound, n: the number of nodes in tree
     //space: O(h) h: the height of the tree
