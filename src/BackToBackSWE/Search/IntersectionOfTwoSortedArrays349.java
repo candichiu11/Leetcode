@@ -5,25 +5,24 @@ import java.util.Set;
 
 public class IntersectionOfTwoSortedArrays349 {
 
-    //Time: O(m + n) , m: the number of items in num1, n: the number of items in num2
-    //Space: O(1)
-    public int[] intersection(int[] num1, int[] num2) {
+    //Time: O(m + n) , m: the number of items in nums1, n: the number of items in nums2
+    //Space: O(m + n)
+    public int[] intersection(int[] nums1, int[] nums2) {
         Set<Integer> set = new HashSet<>();
-        int pointer1 = 0;
-        int pointer2 = 0;
 
-        while (pointer1 < num1.length && pointer2 < num2.length) {
-            if (num1[pointer1] == num2[pointer2]) {
-                set.add(num1[pointer1]);
-                pointer1++;
-                pointer2++;
-            } else if (num1[pointer1] < num2[pointer2]){
-                pointer1++;
-            } else {
-                pointer2++;
+        for (int i : nums1) {
+            set.add(i);
+        }
+
+        Set<Integer> result = new HashSet<>();
+
+        for (int i : nums2) {
+            if (set.contains(i)) {
+                result.add(i);
             }
         }
-         return setToArray(set);
+
+        return setToArray(result);
     }
 
     private int[] setToArray(Set<Integer> set) {
