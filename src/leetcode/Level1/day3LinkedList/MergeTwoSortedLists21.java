@@ -4,9 +4,13 @@ import leetcode.ListNode;
 
 public class MergeTwoSortedLists21 {
 
-    //Recursion
+    //Recursion, in real world, the length of linked lists might be much longer than we expected.
+    //It might introduce a stack overflow
     //Time: O(m+n), Space: O(m+n)
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        if (list1 == null) return list2;
+        if (list2 == null) return list1;
+
         ListNode head;
 
         if(list1.val < list2.val) {
