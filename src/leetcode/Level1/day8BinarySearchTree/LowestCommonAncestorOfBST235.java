@@ -18,11 +18,10 @@ public class LowestCommonAncestorOfBST235 {
             } else if (pVal < parentVal && qVal < parentVal) {
                 node = node.left;
             } else {
-                node = root;
+                return node;
             }
-            return node;
         }
-        return null;
+       return null;
     }
 
 

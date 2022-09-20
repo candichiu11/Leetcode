@@ -3,7 +3,7 @@ package leetcode.JulyChallenge2022;
 import leetcode.TreeNode;
 
 
-public class LowestCommonAncestorBinaryTree236 {
+public class  LowestCommonAncestorBinaryTree236 {
 
     //Time: O(N), Space: O(N) N: the number of nodes in the binary tree
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
