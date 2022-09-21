@@ -10,6 +10,8 @@ public class PaintAMatrix733 {
 
     //Time: O(m*n), Space: O(m*n) m: number of rows, n: number of columns
     public int[][] paint(int[][] image, int row, int col, int newColor) {
+        if (image[row][col] == newColor) return image;
+        int originalColor = image[row][col];
         Queue<Point> queue = new LinkedList<>();
         Set<Point> seen = new HashSet<>();
 
@@ -31,7 +33,7 @@ public class PaintAMatrix733 {
 
                 if(!isInBound(newRow, newCol, image)) continue;
                 Point next = new Point(newRow, newCol);
-                if(!seen.contains(next) && image[next.x][next.y] == 0) {
+                if(!seen.contains(next) && image[next.x][next.y] == originalColor) {
                     queue.add(next);
                     seen.add(next);
                 }
