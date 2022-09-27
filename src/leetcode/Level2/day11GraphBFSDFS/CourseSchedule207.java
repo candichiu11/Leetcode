@@ -4,51 +4,55 @@ import java.util.*;
 
 public class CourseSchedule207 {
 
-    //Time: O(V+E), V: the number of courses, E: the number of prerequisite
-    //Space: O(V+E), we build a graph data structure for the algorithm
+    //Time: O(V + E), V: the number of courses, E: the number of prerequisite
+    //Space: O(V + E), we build a graph data structure for the algorithm
     public boolean canFinish(int numsCourse, int[][] prerequisite) {
-         int[] courseDependencyCount = new int[numsCourse];
+        int[] indegree = new int [numsCourse];
+        Map<Integer, List<Integer>> topoMap = new HashMap<>();
 
-         for(int[] pre : prerequisite) {
-               int currentCourse = pre[0];
-               courseDependencyCount[currentCourse]++;
-           }
+        for (int i = 0; i < numsCourse; i++) {
+            topoMap.put(i, new ArrayList<>());
+        }
 
-         Set<Integer> hs = new HashSet<>();
-         //Find the course that there is no incoming edges, and add it to hash set
-         for(int i = 0; i< numsCourse; i++) {
-             if(courseDependencyCount[i] == 0) {
-                 hs.add(i);
-             }
-         }
+        for (int[] pre : prerequisite) {
+            int currCourse = pre[0];
+            int preCourse = pre[1];
+            topoMap.get(preCourse).add(currCourse);
+            indegree[currCourse]++;
+        }
 
-         if(hs.isEmpty()) return false;
+        Queue<Integer> q = new LinkedList<>();
 
-         while(!hs.isEmpty()) {
-             Iterator<Integer> it = hs.iterator();
-             Integer element = it.next();
+        for (int i = 0; i < numsCourse; i++) {
+            if (indegree[i] == 0) {
+                q.add(i);
+            }
+        }
 
-             //Remove edges that element has
-             for(int i = 0; i< prerequisite.length; i++) {
-                 int dependentCourse = prerequisite[i][1];
-                 int currCourse = prerequisite[i][0];
+        while (!q.isEmpty()) {
+            Integer curr = q.poll();
 
-                 if(element == dependentCourse) {
-                     courseDependencyCount[currCourse]--;
+            for (int child : topoMap.get(curr)) {
+                indegree[child]--;
 
-                     if(courseDependencyCount[currCourse] == 0) {
-                         hs.add(currCourse);
-                     }
-                 }
-             }
-             hs.remove(element);
-         }
+                if (indegree[child] == 0) {
+                    q.add(child);
+                }
+            }
 
-         for(int i = 0; i < numsCourse; i++) {
-             if(courseDependencyCount[i] != 0) return false;
-         }
-         return true;
+        }
+
+        for (int i = 0; i < numsCourse; i++) {
+            if (indegree[i] != 0) {
+                return false;
+            }
+
+        }
+
+        return true;
+
     }
+
 
 
 

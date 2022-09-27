@@ -1,47 +1,61 @@
 package leetcode.Level2.day11GraphBFSDFS;
 
-import java.util.Arrays;
+
+import java.util.*;
 
 public class CourseScheduleII210 {
 
+    // Time: O(V + E)
+    // Space: O(V + E)
     public int[] findOrder(int numsCourse, int[][] prerequisite) {
-        int[] course = new int[numsCourse];
+         Map<Integer, Integer> indegree = new HashMap<>();
+         Map<Integer, List<Integer>> topoMap = new HashMap<>();
 
-        for(int i = 0; i < prerequisite.length; i++) {
-            course[prerequisite[i][1]]++;
-        }
+         for (int i = 0; i < numsCourse; i++) {
+             indegree.put(i, 0);
+             topoMap.put(i, new ArrayList<>());
+         }
 
-        boolean[] visited = new boolean[prerequisite.length];
-        boolean flag = true;
-        int[] result = new int[numsCourse];
-        int i=0;
+         for (int[] pre : prerequisite) {
+             int currCourse = pre[0];
+             int preCourse = pre[1];
+             topoMap.get(preCourse).add(currCourse);
+             indegree.put(currCourse, indegree.get(currCourse) + 1);
+         }
 
-        while(flag) {
-            flag = false;
-            for(int j = 0; j < prerequisite.length; j++) {
-                if(!visited[j]) {
-                    if(course[prerequisite[j][0]] == 0) {
-                        visited[j] = true;
-                        course[prerequisite[j][1]]--;
-                        flag = true;
-                    }
-                }
-            }
-        }
 
-        for(int k = 0; k < numsCourse; k++) {
-            if(course[k] != 0) return new int[]{};
-        }
+         int[] result = new int[numsCourse];
+         int index = 0;
 
-        System.out.println(Arrays.toString(result));
-        return result;
+         while (!indegree.isEmpty()) {
+             boolean hasCycle = true;
+             for (int course : indegree.keySet()) {
+                 if (indegree.get(course) == 0) {
+                     result[index++] = course;
+
+                     for (int children : topoMap.get(course)) {
+                         indegree.put(children, indegree.get(children) - 1);
+                     }
+
+                     indegree.remove(course);
+                     hasCycle = false;
+                     break;
+                 }
+             }
+             if (hasCycle) {
+                 return new int[0];
+             }
+         }
+
+         return result;
+
     }
 
     public static void main(String[] args) {
         CourseScheduleII210 test = new CourseScheduleII210();
         int numsCourse = 4;
         int[][] prerequisite = {{1,0},{2,0},{3,1},{3,2}};
-        test.findOrder(numsCourse, prerequisite);
+        System.out.println(Arrays.toString(test.findOrder(numsCourse, prerequisite)));
     }
 
 }
