@@ -1,35 +1,44 @@
 package leetcode.Level1.day5Greedy;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class LongestPalindrome409 {
 
-    //Time: O(n) , Space: O(1),the space for our count, as the alphabet size of s is fixed.
+    // Time: O(n), n: length of string s
+    // Space: O(n) the hashmap created to store character occurrences
     public int longestPalindrome(String s) {
-        Map<Character, Integer> freqMap = new HashMap<>();
-        for(char c: s.toCharArray()) {
-            freqMap.put(c, freqMap.getOrDefault(c, 0) +1);
-        }
+        Map<Character, Integer> map = new HashMap<>();
 
-        List<Integer> charOccurence = new ArrayList<>(freqMap.values());
-
-        int result = 0;
-        for(int v: charOccurence) {
-            result += v/2 * 2;
-
-            if(result%2 == 0 && v%2 == 1) {
-                result += 1;
+        // O(n)
+        for (char c : s.toCharArray()) {
+            if (map.containsKey(c)) {
+                map.put(c, map.get(c) + 1);
+            } else {
+                map.put(c, 1);
             }
         }
-        System.out.println(result);
+        int result = 0;
+        boolean oddFound = false;
+        //O(n)
+        for (int i : map.values()) {
+            if (i % 2 == 0) {
+                result += i;
+            } else {
+                oddFound = true;
+                result += (i - 1);
+            }
+        }
+        if (oddFound) {
+            result += 1;
+        }
+
         return result;
     }
 
     public static void main(String[] args) {
         LongestPalindrome409 test = new LongestPalindrome409();
-        test.longestPalindrome("abccccdd");
+        System.out.println(test.longestPalindrome("abccccdd"));
     }
 }
