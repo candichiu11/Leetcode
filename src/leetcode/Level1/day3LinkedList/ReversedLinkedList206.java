@@ -11,7 +11,8 @@ public class ReversedLinkedList206 {
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
 
-
+    //Time: O(n)
+    //Space: O(1)
     public ListNode reverseList(ListNode head) {
             ListNode previousNode = null;
             ListNode currentNode = head;
