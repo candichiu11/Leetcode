@@ -54,7 +54,7 @@ public class CloneGraph133 {
                if (!map.containsKey(neighbor)) {
                    /*
                     * No? Give it a mapping and add the original neighbor to the search queue so we
-                    * can express ITS edges later
+                    * can express its edges later
                     */
                    map.put(neighbor, new Node(neighbor.val));
                    queue.add(neighbor);
@@ -75,7 +75,9 @@ public class CloneGraph133 {
 
 
 
-//   //DFS
+//   // DFS
+     // Time: O(N), N: total number of nodes
+     // Space: O(N), we copy every node.(new space)
 //    public Node cloneGraph(Node node) {
 //        if (node == null) return null;
 //

@@ -3,7 +3,7 @@ package leetcode.Level2.day11GraphBFSDFS;
 import java.util.*;
 
 public class CourseSchedule207 {
-
+    // https://leetcode.com/problems/course-schedule-ii/discuss/190393/Topological-Sort-Template-General-Approach!!
     //Time: O(V + E), V: the number of courses, E: the number of prerequisite
     //Space: O(V + E), we build a graph data structure for the algorithm
     public boolean canFinish(int numsCourse, int[][] prerequisite) {
