@@ -1,7 +1,5 @@
 package BackToBackSWE.RecursionAndBacktracking;
 
-import BackToBackSWE.DynamicProgramming.ArrayProduct238;
-
 import java.util.Arrays;
 
 public class SudokuSolver37 {
