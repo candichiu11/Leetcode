@@ -19,6 +19,16 @@ public class KClosestPointsToOrigin973 {
             }
         }
 
-        return maxHeap.toArray(new int[k][2]);
+       //return maxHeap.toArray(new int[k][2]);
+
+        int[][] result = new int[k][2];
+
+        while (k > 0) {
+            k--;
+            result[k] = maxHeap.poll();
+
+        }
+
+        return result;
     }
 }

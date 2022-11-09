@@ -5,26 +5,32 @@ import java.util.List;
 
 public class ValidPalindrome125 {
 
-    //Time: O(n) , n: the length of string s
-    //Space: O(n)
+    //Time: O(n)
+    //Space: O(1)
     public boolean isPalindrome(String s) {
-        List<Character> list = new ArrayList<>();
+        if (s.length() == 0) return true;
 
+        StringBuilder sb = new StringBuilder();
+
+        //O(n)
         for (char c : s.toCharArray()) {
             if (Character.isDigit(c) || Character.isLetter(c)) {
-                list.add(Character.toLowerCase(c));
+                sb.append(c);
             }
         }
 
-        char[] clean = new char[list.size()];
+        String str = sb.toString().toLowerCase();
 
-        for (int j = 0; j < clean.length; j++) {
-            clean[j] = list.get(j);
-        }
+        int l = 0;
+        int r = str.length() - 1;
 
-        for (int i = 0; i < clean.length; i++) {
-            if (clean[i] != clean[clean.length - 1 - i]) {
+        //O(n)
+        while (l < r) {
+            if (str.charAt(l) != str.charAt(r)) {
                 return false;
+            } else {
+                l++;
+                r--;
             }
         }
 

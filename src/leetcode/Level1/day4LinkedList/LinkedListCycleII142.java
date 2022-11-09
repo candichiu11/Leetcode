@@ -46,4 +46,41 @@ public class LinkedListCycleII142 {
         return null;
 
     }
+
+    //Floyd's cycle finding algorithm
+    // Time: O(n)
+    // Space: O(1)
+    public ListNode detectCycleFloyds(ListNode head) {
+        if (head == null || head.next == null) return null;
+
+        ListNode slow = head, fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                fast = head;
+                break;
+            }
+        }
+
+        if (fast == head) {
+            while (slow != fast) {
+                if (slow != null && fast != null) {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+
+            }
+
+            if (slow == fast) {
+                return slow;
+            }
+
+        }
+
+        return null;
+
+    }
 }

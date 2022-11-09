@@ -30,7 +30,11 @@ public class The3SumProblem15 {
             int threeNumberSum = A[root] + A[left] + A[right];
 
             if(threeNumberSum == 0) {
-                result.add(Arrays.asList(A[root], A[left], A[right]));
+                List<Integer> partial = new ArrayList<>();
+                partial.add(A[root]);
+                partial.add(A[left]);
+                partial.add(A[right]);
+                result.add(partial);
                 left++;
                 right--;
             } else if (threeNumberSum < 0) {
