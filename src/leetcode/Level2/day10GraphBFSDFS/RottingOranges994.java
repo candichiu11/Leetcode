@@ -1,5 +1,6 @@
 package leetcode.Level2.day10GraphBFSDFS;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -51,7 +52,8 @@ public class RottingOranges994 {
     public static void main(String[] args) {
         RottingOranges994 test = new RottingOranges994();
         int[][] grid = {{2,1,1}, {1,1,0}, {0,1,1}};
-        test.rottingOrange(grid);
+       
+        System.out.println(Arrays.deepToString(grid));
     }
 
 }

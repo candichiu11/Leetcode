@@ -1,5 +1,7 @@
 package BackToBackSWE.Graph;
 
+import java.util.Arrays;
+
 public class ComputeEnclosedRegions130 {
 
     // Time: O(m * n)
@@ -85,6 +87,13 @@ public class ComputeEnclosedRegions130 {
 
     private boolean isInBound(char[][] board, int row, int col) {
         return row >= 0 && row < board.length && col >=0 && col < board[0].length;
+    }
+
+    public static void main(String[] args) {
+        ComputeEnclosedRegions130 test = new ComputeEnclosedRegions130();
+        char[][] board = {{'X','X','X','X'},{'X','o','o','X'},{'X','X','o','X'},{'X','o','X','X'}};
+        test.preserveCellsDfs(board, 3, 1);
+        System.out.println(Arrays.deepToString(board));
     }
 
 }

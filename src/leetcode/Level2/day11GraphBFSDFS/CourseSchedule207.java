@@ -4,16 +4,20 @@ import java.util.*;
 
 public class CourseSchedule207 {
     // https://leetcode.com/problems/course-schedule-ii/discuss/190393/Topological-Sort-Template-General-Approach!!
-    //Time: O(V + E), V: the number of courses, E: the number of prerequisite
-    //Space: O(V + E), we build a graph data structure for the algorithm
+    // Time: O(V + E), V: the number of courses, E: the number of prerequisite
+    // Space: O(V + E), we build a graph data structure for the algorithm
     public boolean canFinish(int numsCourse, int[][] prerequisite) {
+        // Create an indegree map which records each node's indegree
         int[] indegree = new int [numsCourse];
+        // Create a topoMap which records each node's children
         Map<Integer, List<Integer>> topoMap = new HashMap<>();
 
+        // Initialize topoMap and indegree map
         for (int i = 0; i < numsCourse; i++) {
             topoMap.put(i, new ArrayList<>());
         }
 
+        // Build Map: Put the child into parent's list ; Increase child's in-degree by 1.
         for (int[] pre : prerequisite) {
             int currCourse = pre[0];
             int preCourse = pre[1];
@@ -22,7 +26,7 @@ public class CourseSchedule207 {
         }
 
         Queue<Integer> q = new LinkedList<>();
-
+        // Find Node with 0 in-degree: Iterate the inDegree map, find the Node has 0 inDegree. (If none, there must be a circle)
         for (int i = 0; i < numsCourse; i++) {
             if (indegree[i] == 0) {
                 q.add(i);

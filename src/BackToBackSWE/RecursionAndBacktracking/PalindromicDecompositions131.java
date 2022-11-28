@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PalindromicDecompositions131 {
 
-    //Time: O(n * log 2^n) n: the length of string s
+    //Time: O(n * 2^n) n: the length of string s
     //Space: O(n), maximum depth of recursion call is n
     public List<List<String>> partition(String s) {
        List<List<String>> result = new ArrayList<>();

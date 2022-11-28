@@ -24,6 +24,56 @@ public class TaskScheduler621 {
         return idleTime >0 ? idleTime+tasks.length : tasks.length;
     }
 
+    /*
+    // Use Heap + HashMap
+    // Time: O(N * log N) N: tasks.length
+    // Space: O(N)
+    public int leastInterval(char[] tasks, int n) {
+        if (n == 0) return tasks.length;
+
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> (b - a));
+        Map<Integer, Integer> map = new HashMap<>();
+
+        int[] freq = new int[26];
+
+        for (char task : tasks) {  // O(N)
+            freq[task - 'A']++;
+        }
+
+        for (int f : freq) {  // O(26)
+            if (f > 0) {
+             maxHeap.add(f); // O(N * log N)
+            }
+        }
+
+        int time = 0;
+        int curr = 0;
+        while (!maxHeap.isEmpty() || !map.isEmpty()) {
+           if(!maxHeap.isEmpty()) {
+               curr = maxHeap.poll();
+               if (curr > 1) {
+                map.put(time + n + 1, curr - 1);
+            }
+           }
+
+            time++;
+
+
+            if (map.containsKey(time)) {
+                    maxHeap.add(map.get(time));
+                    map.remove(time);
+            }
+
+
+
+        }
+        return time;
+
+    }
+     */
+
+
+
    public static void main(String[] args) {
         TaskScheduler621 test = new TaskScheduler621();
        char[] tasks = {'A','A','A','B','B','B'};

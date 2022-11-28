@@ -1,8 +1,9 @@
 package BackToBackSWE.Heap;
 
 public class KSmallestElementInAnArrayQuickSelection {
-
-    //Time: O(n) n: nums.length
+    // Quickselect is a selection algorithm to find the k-th smallest
+    // element in an unordered list.
+    //Time: O(n) n: nums.length, O(n^2) worst case, if nums is already a sorted array
     //Space: O(1)
     public int kthSmallestElement(int[] nums, int k) {
        int low = 0;
