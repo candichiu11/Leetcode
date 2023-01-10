@@ -6,7 +6,7 @@ public class WordLadder127 {
 
     // Time: O(N * (M + M^2)) = O(N * M^2)
     // N: number of words in wordList, M: length of word
-    // Space: O( M * N)
+    // Space: O( M^2 * N)
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Set<String> set = new HashSet<>(wordList);
         if (!set.contains(endWord)) return 0;

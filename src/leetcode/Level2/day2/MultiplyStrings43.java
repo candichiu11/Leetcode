@@ -4,7 +4,7 @@ public class MultiplyStrings43 {
 
     public static void main ( String [ ] args ) {
        MultiplyStrings43 m = new MultiplyStrings43();
-       m.multiply("123", "456");
+       m.multiply("123", "456"); //56088
     }
 
     //Time: O(m*n), Space: O(m+n);

@@ -31,7 +31,7 @@ public class TargetSum494 {
         /*
         we started with 0 because suppose we have 0 in the array then
         one way to make target 0 is not take any element and other way is take this 0.. so here we have 2 ways.
-        (for eg in dp table we add dp[i-1][j-nums[]i-1] & dp[i-1][j]... in case of 0 they point to same cell in table)
+        (for eg in dp table we add dp[i-1][j-nums[i-1]] & dp[i-1][j]... in case of 0 they point to same cell in table)
         .... Similary for more 0's in the array we find many ways to make target 0 by selecting some 0's from the array
         and rejecting some
          */

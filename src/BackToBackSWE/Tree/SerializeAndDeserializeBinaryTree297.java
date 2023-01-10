@@ -11,6 +11,7 @@ public class SerializeAndDeserializeBinaryTree297 {
     private static final String NULL_SYMBOL = "x";
     private static final String DELIMITER = ",";
 
+    //pre-order traversal, node / left / right
     //Time: O(n)
     //Space: O(n)
     public String serialize(TreeNode root) {
